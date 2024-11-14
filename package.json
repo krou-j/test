@@ -2,11 +2,14 @@
   "name": "deployprac",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://krou-j.github.io/test/", // homepage 추가
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",// export 추가
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    // deploy 추가
+    "deploy": "next build && next export && touch out/.nojekyll && git add -f out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.19.0",
